@@ -1,0 +1,14 @@
+.ScrollToTop {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  cursor: pointer;
+}

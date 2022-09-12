@@ -1,0 +1,15 @@
+.fixed {
+  display: flex;
+  position: sticky;
+  top: 0;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background: white;
+}
+@media screen and (max-width: 600px) {
+  .fixed {
+    display: none;
+  }
+}

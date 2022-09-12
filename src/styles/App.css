@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  text-align: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+body {
+  margin: 0;
+}
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  align-items: center;
+  padding: 20px;
+}

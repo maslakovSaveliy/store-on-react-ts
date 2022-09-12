@@ -1,0 +1,10 @@
+.MyButton {
+  padding: 6px;
+  border: 1px solid grey;
+  background: none;
+  font: inherit;
+  font-size: larger;
+  cursor: pointer;
+  border-radius: 10px;
+  width: fit-content;
+}

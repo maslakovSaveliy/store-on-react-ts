@@ -1,0 +1,12 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100px;
+}
+.categories button {
+  margin-bottom: 10px;
+}
