@@ -8,15 +8,13 @@ import { useFetching } from "../hooks/useFetching";
 import "../styles/Categories.css";
 const Categories: FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
-  let { setCategory } = useContext(Context);
   const navigate = useNavigate();
   const [fetchCategories, isLoading, error] = useFetching(async () => {
     const res = await Service.getCategories();
     setCategories(res);
   });
   const clickHandler = (category: string) => {
-    setCategory(category);
-    navigate("/products");
+    navigate(`/categories/${category}`);
   };
   useEffect(() => {
     fetchCategories();

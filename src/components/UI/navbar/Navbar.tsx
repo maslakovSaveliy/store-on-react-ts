@@ -5,7 +5,7 @@ import "../../../styles/Navbar.css";
 import MyButton from "../MyButton/MyButton";
 import { useAuthState } from "react-firebase-hooks/auth";
 const Navbar: FC = () => {
-  let { price, auth } = useContext(Context);
+  let { price, auth, setModalVisible } = useContext(Context);
   const [menuVisible, setMenuVisible] = useState(false);
   return (
     <div className="head">
@@ -46,6 +46,11 @@ const Navbar: FC = () => {
             >
               Cart {price.toFixed(2)} $
             </NavLink>
+          </div>
+          <div className="navbar__item">
+            <MyButton onClick={() => setModalVisible(true)}>
+              Request an item
+            </MyButton>
           </div>
           <div className="navbar__item">
             <MyButton onClick={() => auth.signOut()}>Logout</MyButton>

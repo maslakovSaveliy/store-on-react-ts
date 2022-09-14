@@ -6,17 +6,17 @@ import Service from "../API/Service";
 import { useFetching } from "../hooks/useFetching";
 import { Context } from "../context/Context";
 import MyButton from "../components/UI/MyButton/MyButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MySelect from "../components/UI/select/MySelect";
-import StickyTitle from "../components/UI/stickyTitle/StickyTitle";
 const ProductsPage: FC = () => {
+  const params = useParams();
   const [products, setProducts] = useState<IProduct[]>([]);
   const [value, setValue] = useState<string>("standart");
   const [sorted, setSorted] = useState<IProduct[]>(products);
   const navigate = useNavigate();
-  let { category } = useContext(Context);
   const [fetchProducts, isLoading, error] = useFetching(async () => {
-    const response = await Service.getProducts(category);
+    const response = await Service.getProducts(params.categories);
+    console.log();
     setProducts(response);
     setSorted(response);
   });
@@ -45,7 +45,6 @@ const ProductsPage: FC = () => {
     <h1>wait</h1>
   ) : (
     <div>
-      <StickyTitle>{category}</StickyTitle>
       <MyButton
         onClick={() => navigate(-1)}
         style={{ cursor: "pointer", width: "100px" }}

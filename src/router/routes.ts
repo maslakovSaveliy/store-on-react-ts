@@ -9,7 +9,7 @@ export const publicRoutes: IRoute[] = [{ path: "/login", element: Login }];
 export const privateRoutes: IRoute[] = [
   { path: "/", element: HomePage },
   { path: "/categories", element: Categories },
-  { path: "/products", element: ProductPage },
+  { path: "/categories/:categories", element: ProductPage },
   { path: "/products/:id", element: ProductItem },
   { path: "/card", element: CartPage },
 ];
