@@ -6,20 +6,19 @@ import MyButton from "../components/UI/MyButton/MyButton";
 import MySelect from "../components/UI/select/MySelect";
 import StickyTitle from "../components/UI/stickyTitle/StickyTitle";
 const CartPage: FC = () => {
-  let { cardArr, price, removeItem } = useContext(Context);
+  let { cardArr, setCardArr, price, removeItem } = useContext(Context);
   const [value, setValue] = useState<string>("standart");
-  const [sorted, setSorted] = useState<IProduct[]>(cardArr);
   const sortProducts = (sortValue: string) => {
     if (sortValue == "low") {
       const filteredProducts = [...cardArr].sort(
         (a: IProduct, b: IProduct) => a.price - b.price
       );
-      setSorted(filteredProducts);
+      setCardArr(filteredProducts);
     } else if (sortValue == "high") {
       const filteredProducts = [...cardArr].sort(
         (a: IProduct, b: IProduct) => b.price - a.price
       );
-      setSorted(filteredProducts);
+      setCardArr(filteredProducts);
     }
   };
   useEffect(() => {
@@ -28,10 +27,10 @@ const CartPage: FC = () => {
   return (
     <div>
       <StickyTitle>Your cart</StickyTitle>
-      <h1>{price.toFixed(2)} $</h1>
+      {cardArr.length == 0 ? <h1>0 $</h1> : <h1>{price.toFixed(2)} $</h1>}
       <MySelect value={value} setValue={setValue} />
       <List
-        items={sorted}
+        items={cardArr}
         renderItem={(product: IProduct, index: number | undefined) => (
           <div className="product" key={index}>
             <img src={product.image} />

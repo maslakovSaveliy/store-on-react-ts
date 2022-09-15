@@ -18,6 +18,33 @@ img {
   align-content: space-between;
   align-items: center;
 }
+.add__btn {
+  padding: 6px;
+  border: 1px solid grey;
+  background: none;
+  font: inherit;
+  font-size: larger;
+  cursor: pointer;
+  border-radius: 10px;
+  width: fit-content;
+}
+.add__btn.enter-active {
+  animation: add 0.1s forwards;
+}
+.add__btn.exit {
+  background-color: green;
+}
+.add__btn.exit-done {
+  animation: add 0.1s reverse;
+}
+@keyframes add {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: green;
+  }
+}
 @media screen and (max-width: 600px) {
   .product {
     width: 80%;

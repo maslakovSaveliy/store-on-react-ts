@@ -11,5 +11,5 @@ export const useAddToCard = () => {
     setCardArr(cardArr.filter((el, ind) => ind !== index));
     setPrice(price - item.price);
   };
-  return [cardArr, price, addItem, removeItem];
+  return [cardArr, setCardArr, price, addItem, removeItem];
 };

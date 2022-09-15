@@ -16,7 +16,7 @@ import ScrollToTop from "./components/UI/ScrollToTop/ScrollToTop";
 import { CSSTransition } from "react-transition-group";
 initializeApp(config.firebaseConfig);
 const App: FC = () => {
-  const [cardArr, price, addItem, removeItem] = useAddToCard();
+  const [cardArr, setCardArr, price, addItem, removeItem] = useAddToCard();
   const [toTopBtn, setToTopBtn] = useState(false);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const auth = getAuth();
