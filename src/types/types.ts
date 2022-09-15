@@ -16,3 +16,9 @@ export interface IRoute {
   path: string;
   element: FC;
 }
+export interface IProductRequest {
+  category: string;
+  wishes: string;
+  price: string;
+  title: string;
+}

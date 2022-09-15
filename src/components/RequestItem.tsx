@@ -1,14 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { useFetching } from "../hooks/useFetching";
 import Service from "../API/Service";
 import { FieldError, useForm } from "react-hook-form";
+import { Context } from "../context/Context";
 interface FormValues {
   title: string;
-  price: number;
-  description: string;
-  category: {
-    [key: string]: string;
-  };
+  price: string;
+  wishes: string;
+  category: string;
 }
 const RequestItem: FC = () => {
   const {
@@ -17,12 +16,14 @@ const RequestItem: FC = () => {
     handleSubmit,
     reset,
   } = useForm<FormValues>({ mode: "onBlur" });
-  const sendReview = handleSubmit((data) => {
-    console.log(data);
+  let { setModalVisible } = useContext(Context);
+  const submit = handleSubmit(async (data) => {
+    await Service.sendMessage(data);
     reset();
+    setModalVisible(false);
   });
   return (
-    <form onSubmit={sendReview}>
+    <form onSubmit={submit}>
       <label>
         Categories
         <select {...register("category")}>
@@ -63,10 +64,10 @@ const RequestItem: FC = () => {
         </div>
       </label>
       <label>
-        Description
+        Whishes
         <input
           type="textarea"
-          {...register("description", {
+          {...register("wishes", {
             required: "The field is empty",
             minLength: {
               value: 20,
@@ -80,9 +81,7 @@ const RequestItem: FC = () => {
           placeholder="Let your mind here"
         />
         <div>
-          {errors?.description && (
-            <p>{errors?.description?.message || "Error!"}</p>
-          )}
+          {errors?.wishes && <p>{errors?.wishes?.message || "Error!"}</p>}
         </div>
       </label>
       <button type="submit" disabled={!isValid}>
