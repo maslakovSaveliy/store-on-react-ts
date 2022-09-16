@@ -30,6 +30,7 @@ const CartPage: FC = () => {
       {cardArr.length == 0 ? <h1>0 $</h1> : <h1>{price.toFixed(2)} $</h1>}
       <MySelect value={value} setValue={setValue} />
       <List
+        //
         items={cardArr}
         renderItem={(product: IProduct, index: number | undefined) => (
           <div className="product" key={index}>
