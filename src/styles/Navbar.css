@@ -25,7 +25,9 @@
 }
 @media screen and (max-width: 600px) {
   .head {
+    display: flex;
     position: sticky;
+    top: 0;
   }
   .navbar {
     display: none;
