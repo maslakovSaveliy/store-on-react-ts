@@ -21,24 +21,9 @@ const CartPage: FC = () => {
       setCardArr(filteredProducts);
     }
   };
-  /*
-  const sortProducts = (sortValue: string) => {
-    if (sortValue == "low") {
-      const filteredProducts = [...cardArr].sort(
-        (a: IProduct, b: IProduct) => a.price - b.price
-      );
-      setSorted(filteredProducts);
-    } else if (sortValue == "high") {
-      const filteredProducts = [...cardArr].sort(
-        (a: IProduct, b: IProduct) => b.price - a.price
-      );
-      setSorted(filteredProducts);
-    }
-  };
-*/
   useEffect(() => {
     sortProducts(value);
-  }, [value, cardArr]);
+  }, [value]);
   return (
     <div>
       <StickyTitle>Your cart</StickyTitle>
