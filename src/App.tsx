@@ -27,6 +27,7 @@ const App: FC = () => {
     <Context.Provider
       value={{
         cardArr,
+        setCardArr,
         price,
         addItem,
         removeItem,
