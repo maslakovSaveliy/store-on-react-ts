@@ -55,7 +55,7 @@
     left: 0;
   }
   .menu__open {
-    background-color: grey;
+    background-color: rgb(66, 66, 66);
     position: absolute;
     z-index: -1;
     top: 0;
