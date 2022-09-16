@@ -57,14 +57,92 @@ const Navbar: FC = () => {
           </div>
         </div>
       </nav>
-      <div className="menu">
-        <div
-          className="menu__btn"
-          onClick={() => {
-            setMenuVisible((menuVisible) => !menuVisible);
-          }}
-        ></div>
-        {menuVisible && <div className="menu__item"></div>}
+      <div className="navbarM">
+        {menuVisible && (
+          <div className="menu__open">
+            <div className="menu__content">
+              <div className="menu__item">
+                <NavLink
+                  onClick={() => setMenuVisible(false)}
+                  to="/"
+                  style={({ isActive }) =>
+                    isActive
+                      ? { color: "gray", cursor: "default" }
+                      : { color: "black", cursor: "pointer" }
+                  }
+                >
+                  <h3>Home</h3>
+                </NavLink>
+              </div>
+              <div className="menu__item">
+                <NavLink
+                  onClick={() => setMenuVisible(false)}
+                  to="/categories"
+                  style={({ isActive }) =>
+                    isActive
+                      ? { color: "gray", cursor: "default" }
+                      : { color: "black", cursor: "pointer" }
+                  }
+                >
+                  <h3>Products</h3>
+                </NavLink>
+              </div>
+              <div className="menu__item">
+                <NavLink
+                  onClick={() => setMenuVisible(false)}
+                  to="/card"
+                  style={({ isActive }) =>
+                    isActive
+                      ? { color: "gray", cursor: "default" }
+                      : { color: "black", cursor: "pointer" }
+                  }
+                >
+                  {cardArr.length == 0 ? (
+                    <h3>0 $</h3>
+                  ) : (
+                    <h3>{price.toFixed(2)} $</h3>
+                  )}
+                </NavLink>
+              </div>
+              <div className="menu__item">
+                <MyButton onClick={() => setModalVisible(true)}>
+                  <h2>Request an item</h2>
+                </MyButton>
+              </div>
+              <div className="menu__item">
+                <MyButton
+                  onClick={() => {
+                    auth.signOut();
+                    setMenuVisible(false);
+                  }}
+                >
+                  <h2>Logout</h2>
+                </MyButton>
+              </div>
+            </div>
+          </div>
+        )}
+        {menuVisible ? (
+          <div
+            className="menu__btn"
+            onClick={() => {
+              setMenuVisible((menuVisible) => !menuVisible);
+            }}
+          >
+            &#10006;
+          </div>
+        ) : (
+          <div
+            className="menu__btn"
+            onClick={() => {
+              setMenuVisible((menuVisible) => !menuVisible);
+            }}
+          >
+            <div className="menuImg"></div>
+            <div className="menuImg"></div>
+            <div className="menuImg"></div>
+          </div>
+        )}
       </div>
     </div>
   );

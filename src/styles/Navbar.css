@@ -30,8 +30,8 @@
   .navbar {
     display: none;
   }
-  .menu {
-    height: 30px;
+  .navbarM {
+    height: 50px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -41,16 +41,40 @@
     color: white;
   }
   .menu__btn {
-    height: 30px;
-    width: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 50px;
+    width: 50px;
     background: black;
     margin-right: auto;
     cursor: pointer;
-  }
-  .menu__item {
-    background-color: aqua;
     position: absolute;
     top: 0;
-    left: 30px;
+    left: 0;
+  }
+  .menu__open {
+    background-color: grey;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 350px;
+    padding: 50px;
+  }
+  .menu__content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .menuImg {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
   }
 }
