@@ -39,6 +39,8 @@
   background: white;
   border-radius: 16px;
   min-width: 250px;
+  display: flex;
+  flex-direction: column;
 }
 .modalContent form {
   display: flex;
@@ -53,4 +55,15 @@
 }
 .modalContent input {
   margin-left: 10px;
+}
+.close__modal {
+  border: 1px solid grey;
+  background: none;
+  font: inherit;
+  font-size: larger;
+  cursor: pointer;
+  border-radius: 10px;
+  width: fit-content;
+  margin-bottom: 5px;
+  align-self: start;
 }

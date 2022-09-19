@@ -5,10 +5,11 @@ import { IProduct } from "../types/types";
 import MyButton from "../components/UI/MyButton/MyButton";
 import MySelect from "../components/UI/select/MySelect";
 import StickyTitle from "../components/UI/stickyTitle/StickyTitle";
+import "../styles/CartPage.css";
 const CartPage: FC = () => {
   let { cardArr, setCardArr, price, removeItem } = useContext(Context);
   const [value, setValue] = useState<string>("standart");
-  const sortProducts = (sortValue: string) => {
+  const sortProducts = (sortValue: string): void => {
     if (sortValue == "low") {
       const filteredProducts = [...cardArr].sort(
         (a: IProduct, b: IProduct) => a.price - b.price
@@ -21,14 +22,26 @@ const CartPage: FC = () => {
       setCardArr(filteredProducts);
     }
   };
+  const clearCart = () => {
+    setCardArr([]);
+  };
   useEffect(() => {
     sortProducts(value);
   }, [value]);
   return (
-    <div>
+    <div className="cart__page">
       <StickyTitle>Your cart</StickyTitle>
-      {cardArr.length == 0 ? <h1>0 $</h1> : <h1>{price.toFixed(2)} $</h1>}
-      <MySelect value={value} setValue={setValue} />
+      {cardArr.length == 0 ? (
+        <h1>0 $</h1>
+      ) : (
+        <>
+          <h1>{price.toFixed(2)} $</h1>
+          <MyButton onClick={clearCart}>Clear</MyButton>
+        </>
+      )}
+      <div className="cart__buttons">
+        <MySelect value={value} setValue={setValue} />
+      </div>
       <List
         //
         items={cardArr}
