@@ -19,13 +19,14 @@ export default class Service {
     );
     return res.data;
   }
-  static async sendMessage(product: IProductRequest) {
+  static async sendMessage(product: IProductRequest, email: string) {
     const UTFtitle = encodeURIComponent(product.title);
     const UTFwishes = encodeURIComponent(product.wishes);
     const UTFprice = encodeURIComponent(product.price);
     const UTFcategory = encodeURIComponent(product.category);
+    const UTFemail = encodeURIComponent(email);
     axios.get(
-      `https://api.telegram.org/bot5530618039:AAHz04oS2G7n4s4xVHX3WLBZdV7n86wx4O0/sendMessage?chat_id=5434100705&text=${UTFtitle}%20${UTFwishes}%20${UTFprice}%20${UTFcategory}`
+      `https://api.telegram.org/bot5530618039:AAHz04oS2G7n4s4xVHX3WLBZdV7n86wx4O0/sendMessage?chat_id=5434100705&text=${UTFtitle}%20${UTFwishes}%20${UTFprice}%20${UTFcategory}%20${UTFemail}`
     );
   }
 }

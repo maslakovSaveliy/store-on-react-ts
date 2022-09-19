@@ -20,6 +20,7 @@ const App: FC = () => {
   const [toTopBtn, setToTopBtn] = useState(false);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const auth = getAuth();
+  const userEmail = auth.currentUser?.email;
   const [user, isLoading, userError] = useAuthState(auth);
   const firstElement = useRef<HTMLDivElement>(null);
   useObserver(setToTopBtn, firstElement);
@@ -35,6 +36,7 @@ const App: FC = () => {
         user,
         modalVisible,
         setModalVisible,
+        userEmail,
       }}
     >
       <BrowserRouter>

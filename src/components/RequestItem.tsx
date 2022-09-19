@@ -10,6 +10,7 @@ interface FormValues {
   category: string;
 }
 const RequestItem: FC = () => {
+  let { userEmail } = useContext(Context);
   const {
     register,
     formState: { errors, isValid },
@@ -18,7 +19,8 @@ const RequestItem: FC = () => {
   } = useForm<FormValues>({ mode: "onBlur" });
   let { setModalVisible } = useContext(Context);
   const submit = handleSubmit(async (data) => {
-    await Service.sendMessage(data);
+    await Service.sendMessage(data, userEmail);
+    console.log(userEmail);
     reset();
     setModalVisible(false);
   });
@@ -85,7 +87,7 @@ const RequestItem: FC = () => {
         </div>
       </label>
       <button type="submit" disabled={!isValid}>
-        Add Item
+        Request Item
       </button>
     </form>
   );

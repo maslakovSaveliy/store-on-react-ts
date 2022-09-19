@@ -4,7 +4,7 @@ import { Context } from "../context/Context";
 import { privateRoutes, publicRoutes } from "../router/routes";
 import { IRoute } from "../types/types";
 const AppRouter: FC = () => {
-  const { auth, user } = useContext(Context);
+  const { user } = useContext(Context);
   return user ? (
     <Routes>
       {privateRoutes.map((route: IRoute, index: number) => (
