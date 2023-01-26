@@ -27,7 +27,11 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
       <img src={product.image} />
       <h3 className="price">{product.price} $</h3>
       <div className="buttons">
-        <MyButton onClick={() => navigate(`/products/${product.id}`)}>
+        <MyButton
+          onClick={() =>
+            navigate(`/categories/${product.category}/${product.id}`)
+          }
+        >
           Show
         </MyButton>
         <CSSTransition timeout={100} in={onAnimation}>

@@ -10,6 +10,6 @@ export const privateRoutes: IRoute[] = [
   { path: "/", element: HomePage },
   { path: "/categories", element: Categories },
   { path: "/categories/:categories", element: ProductPage },
-  { path: "/products/:id", element: ProductItem },
+  { path: "/categories/:categories/:id", element: ProductItem },
   { path: "/card", element: CartPage },
 ];
